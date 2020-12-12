@@ -17,6 +17,16 @@
 >    Recommended resolution is a square image from 144x144 to 4096x4096.
 > 1. Write your article in `src/article.md`. Make sure the title matches the one
 >    in `src/front-matter.yaml`.
+> 1. The repository is designed to deploy to a GitHub Pages site on an external
+>    repo. Typically, I do this by creating an organization so that I can have a
+>    URL like `custom-name.github.io`. Once you have such a repo, set up GitHub
+>    Actions deployment:
+>    1. Obtain a
+>       [Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token).
+>    1. Add the token as a secret called `TOKEN`
+>       ([how to add a secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository))
+>    1. Change the `external_repository` at the bottom of
+>       `.github/workflows/deploy.yaml`.
 > 1. Remove this message.
 >
 > This repository is built on the
