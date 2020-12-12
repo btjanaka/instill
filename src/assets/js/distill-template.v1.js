@@ -20298,7 +20298,7 @@
           window.location.hostname !== "localhost" &&
           window.location.origin !== "file://"
         ) {
-          banner(window.document, data);
+          // banner(window.document, data);
         }
         generateCrossref(data);
         // console.log(data);
