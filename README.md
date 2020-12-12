@@ -4,9 +4,11 @@
 >
 > ## Template Instructions
 >
-> This repository is a template for single-page web articles. To use it, simply
-> clone it, and follow the other instructions in this document for installation.
-> After cloning, you should also do the following:
+> This repository is a template for single-page web articles. To use it, start
+> by clicking the `Use this template` button on the home page of the repo, or by
+> visiting [this link](https://github.com/btjanaka/web-article/generate). Follow
+> the other instructions in this document for installation, then do the
+> following:
 >
 > 1. Change the title of this README.
 > 1. Edit the "name", "author", "description", and "repository" fields in
