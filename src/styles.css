@@ -1,0 +1,25 @@
+:root {
+  --theme: #e62020;
+}
+
+a.permalink {
+  color: rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  border: 0px;
+}
+a.permalink:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  border: 0px;
+}
+
+/* Overrides */
+.dt-hover-box a {
+  color: var(--theme) !important;
+}
+dt-cite .citation-number {
+  color: var(--theme) !important;
+}
+dt-article h3 {
+  font-style: normal !important;
+}

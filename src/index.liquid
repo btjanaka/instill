@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="assets/js/distill-template.v1.js"></script>
+
+    <script type="text/front-matter">
+{{ frontMatter }}
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:site_name" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ url }}" />
+    <meta property="og:image" content="{{ url }}/assets/img/open-graph-preview.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta name="twitter:image" content="{{ url }}/assets/img/twitter-preview.png" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/katex.min.css">
+    <style>
+{{ styles }}
+    </style>
+  </head>
+
+  <body>
+    <dt-article>
+{{ article }}
+    </dt-article>
+
+    <dt-appendix>
+{{ appendix }}
+    </dt-appendix>
+
+    <script type="text/bibliography">
+{{ references }}
+    </script>
+  </body>
+
+</html>

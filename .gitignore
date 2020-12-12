@@ -1,0 +1,14 @@
+# JavaScript
+node_modules/
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+src/assets/bundle
+
+# Editor
+*.swp
+.vscode/
+
+# Site
+build/

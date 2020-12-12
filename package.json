@@ -1,0 +1,27 @@
+{
+  "name": "article",
+  "version": "0.0.0",
+  "author": "Bryon Tjanaka",
+  "description": "A web article",
+  "repository": "https://github.com/btjanaka/web-article",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp watch"
+  },
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "browser-sync": "2.26.13",
+    "eslint": "7.15.0",
+    "eslint-config-google": "0.14.0",
+    "eslint-config-prettier": "7.0.0",
+    "fs-extra": "9.0.1",
+    "gulp": "4.0.2",
+    "js-yaml": "3.14.1",
+    "liquidjs": "9.17.0",
+    "markdown-it": "12.0.3",
+    "markdown-it-anchor": "6.0.1",
+    "markdown-it-center-text": "1.0.4",
+    "markdown-it-katex": "2.0.3",
+    "markdown-it-toc-done-right": "4.2.0"
+  }
+}
