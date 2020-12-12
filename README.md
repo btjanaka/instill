@@ -1,4 +1,4 @@
-# Website Article
+# Web Article
 
 > The demo of this template is on <https://web-article.github.io>
 >
