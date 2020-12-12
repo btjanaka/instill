@@ -1,0 +1,19 @@
+title: "Hello World"
+url: https://instill-article.github.io # Leave out the slach ("/") at the end
+description: "This is a web article." # Only shows up in meta tags.
+authors:
+  - name: Bryon Tjanaka
+    link: https://btjanaka.net
+    affiliation: Univ. Southern California
+    affiliationLink: https://usc.edu
+  - name: Bryon Tjanaka
+    link: https://btjanaka.net
+    affiliation: Univ. Southern California
+    affiliationLink: https://usc.edu
+links:
+  - name: Website
+    url: https://btjanaka.net
+  - name: GitHub
+    url: https://github.com/btjanaka/instill
+  - name: YouTube Video
+    url: https://www.youtube.com/watch?v=rEDzUT3ymw4

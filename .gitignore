@@ -8,6 +8,7 @@ src/assets/bundle
 
 # Editor
 *.swp
+*.vim
 .vscode/
 
 # Site

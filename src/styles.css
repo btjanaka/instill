@@ -1,25 +1,434 @@
+/*
+ * Main stylesheet. These styles are inserted into the head of the webpage.
+ * First are Markdown styles, based on the Modest theme by John Otander
+ * http://markdowncss.github.io/modest/
+ */
+
 :root {
-  --theme: #e62020;
+  --body: rgba(0, 0, 0, 0.8);
+  --link-hover: rgba(0, 0, 0, 0.8);
+}
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a.permalink {
+    display: none;
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+/* Web styles */
+
+html {
+  font-size: 20px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+div.main {
+  color: var(--body);
+  font-family: Georgia, sans-serif;
+  font-weight: 300;
+  margin: 0 auto;
+  max-width: 48rem;
+  line-height: 1.45;
+  padding: 40px;
+}
+
+footer {
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+  margin: 0px;
+  padding: 30px 0px;
+  font-size: 0.8rem;
+}
+
+/* Links */
+
+a,
+a:visited {
+  color: var(--body);
+  text-decoration: none;
+  border-bottom: 1px solid var(--body);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--link-hover);
+  border-bottom: 2px solid var(--link-hover);
 }
 
 a.permalink {
   color: rgba(0, 0, 0, 0.2);
   text-decoration: none;
   border: 0px;
+  font-size: 80%;
 }
+
 a.permalink:hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--link-hover);
   text-decoration: none;
   border: 0px;
 }
 
-/* Overrides */
-.dt-hover-box a {
-  color: var(--theme) !important;
+/* Paragraphs */
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
 }
-dt-cite .citation-number {
-  color: var(--theme) !important;
+
+/* Pre and code */
+
+pre,
+code {
+  font-family: Menlo, Monaco, Consolas, Andale Mono, lucida console,
+    "Courier New", monospace;
+  background-color: #fafafa;
 }
-dt-article h3 {
-  font-style: normal !important;
+
+pre {
+  padding: 0.5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+  font-size: 0.9rem;
+}
+
+/* Headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  line-height: 1.42;
+  margin: 1.4rem 0rem 1.15rem 0rem;
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0.8rem;
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 0.9rem;
+}
+
+/* Misc */
+
+blockquote {
+  border-left: 8px solid #fafafa;
+  padding: 1rem;
+}
+
+small {
+  font-size: 0.707em;
+}
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/*
+ * Custom styles
+ */
+
+:root {
+  --theme: #e62020;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-moz-selection {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Authors and links */
+
+.links {
+  padding: 6px 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.link-cell {
+  float: left;
+  display: inline-block;
+  padding: 4px 12px;
+}
+
+.authors {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 6px 0px;
+}
+
+.author-table {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.author-row {
+  padding: 0px;
+  margin: 0px;
+}
+
+.author-row a,
+.links a {
+  text-decoration: none;
+  border-bottom: 0px;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.links a {
+  font-size: 1rem;
+}
+
+.author-row a:hover,
+.links a:hover {
+  border-bottom: 2px solid var(--link-hover);
+  color: var(--link-hover);
+}
+
+.author-name {
+  text-align: left;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+}
+
+.author-affiliation {
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Modal - see https://www.cssscript.com/simple-responsive-css-modal-dialog/ */
+
+.modal-container {
+  margin: 0 0;
+  position: relative;
+}
+
+.modal-container button {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--theme);
+  background: white;
+  border: 0;
+}
+
+.modal-container .modal-backdrop {
+  display: none;
+}
+
+.modal-container .modal-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Button style when hovering over the button. */
+.modal-container .modal-toggle:hover ~ button {
+  text-decoration: underline;
+}
+
+.modal-container .modal-toggle:checked {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+}
+
+/* Grey backdrop appears when the button is pressed. */
+.modal-container .modal-toggle:checked ~ .modal-backdrop {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* Modal content appearance when the button is checked. */
+.modal-container .modal-toggle:checked ~ .modal-backdrop .modal-content {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 360px;
+  width: 100%;
+  padding: 15px;
+  position: absolute;
+  /* max-width of 360 + 2 * 20 = 400, hence subtract 200 from 50% to get midpoint */
+  left: calc(50% - 200px);
+  top: 12%;
+  z-index: 999;
+  pointer-events: auto;
+  cursor: auto;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  font-style: normal;
+  font-size: 0.7rem;
+}
+@media (max-width: 400px) {
+  .modal-container .modal-toggle:checked ~ .modal-backdrop .modal-content {
+    left: 0;
+  }
+}
+
+/* Close button appears when the button is checked. */
+.modal-container
+  .modal-toggle:checked
+  ~ .modal-backdrop
+  .modal-content
+  .modal-close {
+  display: block;
+  padding-top: 1rem;
+  width: 100%;
+  text-align: right;
+  color: var(--theme);
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.modal-container
+  .modal-toggle:checked
+  ~ .modal-backdrop
+  .modal-content
+  .modal-close:hover {
+  text-decoration: underline;
+}
+
+/* References */
+
+ol.reference-list {
+  padding-left: 30px;
+  font-size: 0.8rem;
+}
+
+.reference-item {
+  margin-bottom: 0.7rem;
+}
+
+.reference-link,
+.reference-link:visited {
+  color: var(--theme);
+  border-bottom: 0px;
+}
+
+.reference-link:hover {
+  color: var(--theme);
+  border-bottom: 0px;
+  text-decoration: underline;
 }

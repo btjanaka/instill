@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script src="assets/js/distill-template.v1.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script type="text/front-matter">
-{{ frontMatter }}
-    </script>
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="canonical" href="{{ url }}">
 
     <!-- Open Graph -->
     <meta property="og:title" content="{{ title }}" />
@@ -25,23 +25,53 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/katex.min.css">
+    <link rel="stylesheet" href="assets/css/highlight.min.css">
     <style>
-{{ styles }}
+      {{ styles }}
     </style>
   </head>
 
   <body>
-    <dt-article>
-{{ article }}
-    </dt-article>
+    <div class="main">
+      <h1>{{ title }}</h1>
 
-    <dt-appendix>
-{{ appendix }}
-    </dt-appendix>
+      {% if links %}
+      <div class="links">
+      {% for link in links %}
+        <div class="link-cell">
+          <a title="{{ link.name }}" href="{{ link.url }}">{{ link.name }}</a>
+        </div>
+      {% endfor %}
+      </div>
+      {% endif %}
 
-    <script type="text/bibliography">
-{{ references }}
-    </script>
+      <div class="authors">
+        <table class="author-table">
+        {% for author in authors %}
+          <tr class="author-row">
+            <td class="author-name">
+              <a title="{{ author.name }}" href="{{ author.link }}">{{ author.name }}</a>
+            </td>
+            <td class="author-affiliation">
+              <a title="{{ author.affiliation }}" href="{{ author.affiliationLink }}">
+                {{ author.affiliation | upcase }}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        </table>
+      </div>
+
+      {{ article }}
+    </div>
+
+    <footer>
+      This work is released under the
+      <a title="CC BY 4.0" href="https://creativecommons.org/licenses/by/4.0/">
+        CC BY 4.0</a> license.
+      Powered by Bryon Tjanaka's
+      <a title="Instill" href="https://github.com/btjanaka/instill">
+        Instill</a> template.
+    </footer>
   </body>
-
 </html>

@@ -1,7 +1,126 @@
-@article{gregor2015draw,
+@article{Gregor2015,
   title={DRAW: A recurrent neural network for image generation},
   author={Gregor, Karol and Danihelka, Ivo and Graves, Alex and Rezende, Danilo Jimenez and Wierstra, Daan},
   journal={arXivreprint arXiv:1502.04623},
   year={2015},
   url={https://arxiv.org/pdf/1502.04623.pdf}
+}
+
+@Article{Mnih2015,
+  author={Mnih, Volodymyr
+          and Kavukcuoglu, Koray
+          and Silver, David
+          and Rusu, Andrei A.
+          and Veness, Joel
+          and Bellemare, Marc G.
+          and Graves, Alex
+          and Riedmiller, Martin
+          and Fidjeland, Andreas K.
+          and Ostrovski, Georg
+          and Petersen, Stig
+          and Beattie, Charles
+          and Sadik, Amir
+          and Antonoglou, Ioannis
+          and King, Helen
+          and Kumaran, Dharshan
+          and Wierstra, Daan
+          and Legg, Shane
+          and Hassabis, Demis},
+  title={Human-level control through deep reinforcement learning},
+  journal={Nature},
+  year={2015},
+  volume={518},
+  number={7540},
+  pages={529-533},
+  abstract={An artificial agent is developed that learns to play?a diverse range of classic Atari 2600 computer games directly from sensory experience, achieving a?performance comparable to that of an expert human player; this work paves the way to building general-purpose learning algorithms that bridge the divide between perception and action.},
+  issn={1476-4687},
+  doi={10.1038/nature14236},
+  url={https://doi.org/10.1038/nature14236}
+}
+
+@article{Heess2017,
+  author    = {Nicolas Heess and
+               Dhruva TB and
+               Srinivasan Sriram and
+               Jay Lemmon and
+               Josh Merel and
+               Greg Wayne and
+               Yuval Tassa and
+               Tom Erez and
+               Ziyu Wang and
+               S. M. Ali Eslami and
+               Martin A. Riedmiller and
+               David Silver},
+  title     = {Emergence of Locomotion Behaviours in Rich Environments},
+  journal   = {CoRR},
+  volume    = {abs/1707.02286},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1707.02286},
+  archivePrefix = {arXiv},
+  eprint    = {1707.02286},
+  timestamp = {Mon, 22 Jul 2019 16:19:02 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/corr/HeessTSLMWTEWER17},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Silver2017,
+  author = {Silver, David and Schrittwieser, Julian and Simonyan, Karen and Antonoglou, Ioannis and Huang, Aja and Guez, Arthur and Hubert, Thomas and Baker, Lucas and Lai, Matthew and Bolton, Adrian and Chen, Yutian and Lillicrap, Timothy and Hui, Fan and Sifre, Laurent and Driessche, George van den and Graepel, Thore and Hassabis, Demis},
+  title = {{Mastering the game of Go without human knowledge}},
+  issn = {0028-0836},
+  doi = {10.1038/nature24270},
+  abstract = {{A long-standing goal of artificial intelligence is an algorithm that learns, tabula rasa, superhuman proficiency in challenging domains. Recently, AlphaGo became the first program to defeat a world champion in the game of Go. The tree search in AlphaGo evaluated positions and selected moves using deep neural networks. These neural networks were trained by supervised learning from human expert moves, and by reinforcement learning from self-play. Here we introduce an algorithm based solely on reinforcement learning, without human data, guidance or domain knowledge beyond game rules. AlphaGo becomes its own teacher: a neural network is trained to predict AlphaGo’s own move selections and also the winner of AlphaGo’s games. This neural network improves the strength of the tree search, resulting in higher quality move selection and stronger self-play in the next iteration. Starting tabula rasa, our new program AlphaGo Zero achieved superhuman performance, winning 100–0 against the previously published, champion-defeating AlphaGo. Starting from zero knowledge and without human data, AlphaGo Zero was able to teach itself to play Go and to develop novel strategies that provide new insights into the oldest of games. To beat world champions at the game of Go, the computer program AlphaGo has relied largely on supervised learning from millions of human expert moves. David Silver and colleagues have now produced a system called AlphaGo Zero, which is based purely on reinforcement learning and learns solely from self-play. Starting from random moves, it can reach superhuman level in just a couple of days of training and five million games of self-play, and can now beat all previous versions of AlphaGo. Because the machine independently discovers the same fundamental principles of the game that took humans millennia to conceptualize, the work suggests that such principles have some universal character, beyond human bias.}},
+  pages = {354--359},
+  number = {7676},
+  volume = {550},
+  journal = {Nature},
+  year = {2017}
+}
+
+@misc{Brockman2016,
+  author = {Greg Brockman and Vicki Cheung and Ludwig Pettersson and Jonas Schneider and John Schulman and Jie Tang and Wojciech Zaremba},
+  title = {OpenAI Gym},
+  year = {2016},
+  eprint = {arXiv:1606.01540},
+  url = {https://arxiv.org/abs/1606.01540},
+}
+
+@InProceedings{Liang2018,
+  title = 	 {{RL}lib: Abstractions for Distributed Reinforcement Learning},
+  author = 	 {Liang, Eric and Liaw, Richard and Nishihara, Robert and Moritz, Philipp and Fox, Roy and Goldberg, Ken and Gonzalez, Joseph and Jordan, Michael and Stoica, Ion},
+  booktitle = 	 {Proceedings of the 35th International Conference on Machine Learning},
+  pages = 	 {3053--3062},
+  year = 	 {2018},
+  editor = 	 {Dy, Jennifer and Krause, Andreas},
+  volume = 	 {80},
+  series = 	 {Proceedings of Machine Learning Research},
+  address = 	 {Stockholmsmässan, Stockholm Sweden},
+  month = 	 {10--15 Jul},
+  publisher = 	 {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v80/liang18b/liang18b.pdf},
+  url = 	 {http://proceedings.mlr.press/v80/liang18b.html},
+  abstract = 	 {Reinforcement learning (RL) algorithms involve the deep nesting of highly irregular computation patterns, each of which typically exhibits opportunities for distributed computation. We argue for distributing RL components in a composable way by adapting algorithms for top-down hierarchical control, thereby encapsulating parallelism and resource requirements within short-running compute tasks. We demonstrate the benefits of this principle through RLlib: a library that provides scalable software primitives for RL. These primitives enable a broad range of algorithms to be implemented with high performance, scalability, and substantial code reuse. RLlib is available as part of the open source Ray project at http://rllib.io/.}
+}
+
+@article{Haarnoja2018b,
+  author    = {Tuomas Haarnoja and
+               Aurick Zhou and
+               Kristian Hartikainen and
+               George Tucker and
+               Sehoon Ha and
+               Jie Tan and
+               Vikash Kumar and
+               Henry Zhu and
+               Abhishek Gupta and
+               Pieter Abbeel and
+               Sergey Levine},
+  title     = {Soft Actor-Critic Algorithms and Applications},
+  journal   = {CoRR},
+  volume    = {abs/1812.05905},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1812.05905},
+  archivePrefix = {arXiv},
+  eprint    = {1812.05905},
+  timestamp = {Tue, 01 Jan 2019 15:01:25 +0100},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1812-05905.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
