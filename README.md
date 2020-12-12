@@ -1,5 +1,7 @@
 # Website Article
 
+> The demo of this template is on <https://web-article.github.io>
+>
 > ## Template Instructions
 >
 > This repository is a template for single-page web articles. To use it, simply
