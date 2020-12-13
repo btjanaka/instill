@@ -145,11 +145,10 @@ function renderArticle() {
   article("cite").each(function (idx, obj) {
     /* eslint-disable no-invalid-this */
 
-    // Retrieve the specified ids from the key attr of the citation. The
-    // citations should be comma-separated (they can have some whitespace
-    // though).
+    // Retrieve the specified ids from the text of the citation. The citations
+    // should be comma-separated (they can have some whitespace though).
     const ids = article(this)
-      .attr("key")
+      .text()
       .split(",")
       .map((s) => s.trim());
 

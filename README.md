@@ -19,7 +19,7 @@
 > - Table of contents for your articles with
 >   [markdown-it-toc-done-right](https://www.npmjs.com/package/markdown-it-toc-done-right)
 > - Include and cite bibtex references with a custom `cite` command; e.g.
->   `<cite key="someone1992"></cite>`
+>   `<cite>someone1992</cite>`
 >   - Citations come with a modal that shows more info when clicked on
 > - Lazy loaded images as suggested
 >   [here](https://victorzhou.com/blog/lazy-loading-images/)
@@ -118,11 +118,10 @@ In addition:
 - When creating an image, such as with `![Alt text](path/to/img.jpg)`, the alt
   text will be used as the image caption, and will appear below the image when
   rendered.
-- You can cite references in `src/references.bib` with
-  `<cite key="KEYS"></cite>` where `KEYS` is a comma-separated list of keys from
-  `src/references.bib`. For instance, you can use
-  `<cite key="Einstein1921, Oppenheimer1950"></cite>` to cite two articles
-  `Einstein1921` and `Oppenheimer1950`.
+- You can cite references in `src/references.bib` with `<cite>KEYS</cite>` where
+  `KEYS` is a comma-separated list of keys/ids from `src/references.bib`. For
+  instance, you can use `<cite>Einstein1921, Oppenheimer1950"</cite>` to cite
+  two articles `Einstein1921` and `Oppenheimer1950`.
   - Make sure to include the `url` field in your bibtex entries so that the
     articles are easily accessible from the webpage.
 

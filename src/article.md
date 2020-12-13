@@ -60,16 +60,16 @@ $$e = mc^2$$
 
 ## Citations
 
-This is how to cite external publications <cite key="Gregor2015"></cite>. That
-was done with `<cite key="Gregor2015"></cite>`. Click on the citation to see the
+This is how to cite external publications <cite>Gregor2015</cite>. That
+was done with `<cite>Gregor2015</cite>`. Click on the citation to see the
 references pop up!
 
-Multiple citations works too: <cite key="Gregor2015, Mnih2015"></cite>. That was
-done with `<cite key="gregor2015draw, Mnih2015"></cite>`.
+Multiple citations works too: <cite>Gregor2015, Mnih2015</cite>. That was
+done with `<cite>Gregor2015, Mnih2015</cite>`.
 
 Citation numbers will be sorted; even though we put `Gregor2015` at the end
-here: `<cite key="Silver2017, Heess2017, Gregor2015"></cite>` it still shows up
-first <cite key="Silver2017, Heess2017, Gregor2015"></cite>.
+here: `<cite>Silver2017, Heess2017, Gregor2015</cite>` it still shows up
+first <cite>Silver2017, Heess2017, Gregor2015</cite>.
 
 ## Lists
 
