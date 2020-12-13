@@ -1,6 +1,8 @@
 ## Abstract
 
-This article is a demonstration of Instill. See
+Instill is a single-page article template geared towards academics looking to
+create an online version of their paper. This page is a demonstration of
+Instill. See
 [src/article.md](https://github.com/btjanaka/instill/blob/master/src/article.md)
 in the repo for the Markdown source.
 

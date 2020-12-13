@@ -2,12 +2,8 @@
 
 > ## About Instill
 >
-> (This part of the README is for template users; the rest is for those who have
-> set up the repo.)
->
-> > _Articles for instilling knowledge into the greater community._
->
-> Instill is a template for single-page articles. Visit the demo here:
+> Instill is a single-page article template geared towards academics looking to
+> create an online version of their paper. Visit the demo here:
 > <https://instill-article.github.io>
 >
 > ## Features
