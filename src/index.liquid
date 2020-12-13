@@ -44,7 +44,7 @@
     <main>
       <article>
         <h1>{{ title }}</h1>
-        <p>{{ description }}</p>
+        {% comment %} <p>{{ description }}</p> {% endcomment %}
 
         <address>
           {% for author in authors %}
@@ -54,7 +54,7 @@
             </span>
             <span class="author-affiliation">
               <a title="{{ author.affiliation }}" href="{{ author.affiliationLink }}">
-                {{ author.affiliation | upcase }}
+                {{ author.affiliation }}
               </a>
             </span>
           </div>
@@ -68,12 +68,11 @@
             <a title="{{ link.name }}" href="{{ link.url }}">{{ link.name }}</a>
           </div>
         {% endfor %}
+          <div class="link-cell date">
+            <i>Published {{ date }}</i>
+          </div>
         </div>
         {% endif %}
-
-        <p class="date">
-        <i>Published {{ date }}</i>
-        </p>
 
         {{ article }}
       </article>

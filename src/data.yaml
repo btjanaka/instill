@@ -1,7 +1,7 @@
 title: "Instill: A Single-Page Web Article Template"
 url: https://instill-article.github.io # Leave out the slach ("/") at the end
 description: "This site demonstrates some of the capabilities of Instill." # Short one-liner.
-date: "Jan. 1, 1970" # Whatever you put here is shown as is.
+date: "Dec. 12, 2020" # Whatever you put here is shown as is.
 header: # Comment out this entire key to remove the header.
   img: assets/img/flowers.png # Header image path (at the top of the article).
   caption:
@@ -12,10 +12,6 @@ authors:
     link: https://btjanaka.net
     affiliation: Univ. Southern California
     affiliationLink: https://usc.edu
-  - name: Person 1
-    link: /
-    affiliation: An Institution
-    affiliationLink: /
   - name: John Doe
     link: /
     affiliation: Another Institution

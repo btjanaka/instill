@@ -293,6 +293,7 @@ figcaption.header-caption {
 address {
   padding: 6px 0px;
   overflow: hidden;
+  font-style: normal;
 }
 
 .author-cell,
@@ -309,7 +310,7 @@ address {
 
 .author-cell a {
   font-size: 0.8rem;
-  color: var(--secondary);
+  color: var(--primary);
   border-bottom: 0px;
 }
 
@@ -336,14 +337,18 @@ address {
   font-weight: bold;
 }
 
+.date {
+  float: right;
+  padding-right: 0px;
+  color: var(--secondary);
+}
+
 @media (max-width: 700px) {
   .author-cell,
-  .link-cell {
+  .link-cell,
+  .date {
     float: none;
     display: block;
-  }
-  .author-name {
-    padding-right: 12px;
   }
 }
 
