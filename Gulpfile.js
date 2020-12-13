@@ -1,10 +1,12 @@
 // Instructions for building the site as well as serving a live version.
-const browserSync = require("browser-sync");
 const Cite = require("citation-js");
+const CleanCSS = require("clean-css");
+const browserSync = require("browser-sync");
 const cheerio = require("cheerio");
 const fs = require("fs-extra");
 const fsPromises = require("fs-extra").promises;
 const hljs = require("highlight.js");
+const htmlMinify = require("html-minifier").minify;
 const path = require("path");
 const yaml = require("js-yaml");
 const { Liquid } = require("liquidjs");
@@ -12,6 +14,14 @@ const { watch, series } = require("gulp");
 
 const BUILD_DIR = "build";
 const liquidEngine = new Liquid();
+const cssMinify = new CleanCSS({ level: 1 });
+const htmlMinifyOptions = {
+  useShortDoctype: true,
+  collapseWhitespace: true,
+  removeRedundantAttributes: true,
+  removeComments: true,
+  minifyCss: true,
+};
 
 // markdown-it with katex and center-text plugins.
 const md = require("markdown-it")({
@@ -49,6 +59,7 @@ function clean(callback) {
   callback();
 }
 
+// Only intended for development mode.
 function linkAssets(callback) {
   fs.symlinkSync("../src/assets", path.join(BUILD_DIR, "assets"));
   callback();
@@ -56,6 +67,16 @@ function linkAssets(callback) {
 
 function copyAssets(callback) {
   fs.copySync("src/assets/", path.join(BUILD_DIR, "assets"));
+  callback();
+}
+
+function copyFiles(callback) {
+  for (const filename of ["404.html", "favicon.ico", "robots.txt"]) {
+    fsPromises.copyFile(
+      path.join("src", filename),
+      path.join(BUILD_DIR, filename)
+    );
+  }
   callback();
 }
 
@@ -123,11 +144,9 @@ function renderArticleAndRefs() {
         citedEntries.push(entry);
       }
       const pos = citedIdsToNums[id];
-      console.log(citedEntries);
       data.push({ entry: citedEntries[pos], num: pos });
     }
     data.sort((a, b) => a.num - b.num); // Sort by number.
-    console.log(data);
 
     // Render all the entries for display in the modal.
     const renderedEntries = data
@@ -165,13 +184,16 @@ function renderArticleAndRefs() {
   return article.html() + referenceStr;
 }
 
-function buildArticle(callback) {
+function buildArticle(minify, callback) {
   const template = fs.readFileSync("src/index.liquid", "utf8");
   const data = yaml.safeLoad(fs.readFileSync("src/data.yaml", "utf8"));
   const article = renderArticleAndRefs();
 
+  let styles = fs.readFileSync("src/styles.css", "utf8");
+  if (minify) styles = cssMinify.minify(styles).styles;
+
   const substitutions = {
-    styles: fs.readFileSync("src/styles.css", "utf8"),
+    styles: styles,
     article: article,
   };
 
@@ -183,18 +205,11 @@ function buildArticle(callback) {
 
   liquidEngine
     .parseAndRender(template, substitutions)
-    .then((data) => fs.writeFile(path.join(BUILD_DIR, "index.html"), data))
+    .then(function (html) {
+      if (minify) html = htmlMinify(html, htmlMinifyOptions);
+      fs.writeFile(path.join(BUILD_DIR, "index.html"), html);
+    })
     .then(callback);
-}
-
-function copyFiles(callback) {
-  for (const filename of ["404.html", "favicon.ico", "robots.txt"]) {
-    fsPromises.copyFile(
-      path.join("src", filename),
-      path.join(BUILD_DIR, filename)
-    );
-  }
-  callback();
 }
 
 function refreshSite(callback) {
@@ -207,7 +222,7 @@ function liveReload() {
   watch(
     ["src/**/*.*", "!**/.*.swp", "!**/*.vim"],
     { ignoreInitial: false },
-    series(buildArticle, copyFiles, refreshSite)
+    series((cb) => buildArticle(false, cb), copyFiles, refreshSite)
   );
 }
 
@@ -248,5 +263,7 @@ exports.default = function (callback) {
   console.log("  watch -> Live reload the site at localhost:3000.");
   callback();
 };
-exports.build = series(clean, copyAssets, copyFiles, buildArticle);
+exports.build = series(clean, copyAssets, copyFiles, (cb) =>
+  buildArticle(true, cb)
+);
 exports.watch = series(clean, linkAssets, startServer, liveReload);
