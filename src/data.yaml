@@ -1,6 +1,6 @@
-title: "Hello World"
+title: "Instill: A Single-Page Web Article Template"
 url: https://instill-article.github.io # Leave out the slach ("/") at the end
-description: "This is a web article." # Short one-liner.
+description: "This site demonstrates some of the capabilities of Instill." # Short one-liner.
 date: "Jan. 1, 1970" # Whatever you put here is shown as is.
 header: # Comment out this entire key to remove the header.
   img: assets/img/flowers.png # Header image path (at the top of the article).
@@ -16,13 +16,13 @@ authors:
     link: /
     affiliation: An Institution
     affiliationLink: /
+  - name: John Doe
+    link: /
+    affiliation: Another Institution
+    affiliationLink: /
   - name: Random Person
     link: /
     affiliation: Yet Another Institution
-    affiliationLink: /
-  - name: John Doe
-    link: /
-    affiliation: Anonymous Institution
     affiliationLink: /
   - name: Sam Pole
     link: /
