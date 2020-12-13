@@ -21,6 +21,8 @@
 > - Include and cite bibtex references with a custom `cite` command; e.g.
 >   `<cite>someone1992</cite>`
 >   - Citations come with a modal that shows more info when clicked on
+> - Write footnotes that show up in a modal with
+>   `<footnote>Lorem ipsum dolor...</footnote>`
 > - Lazy loaded images as suggested
 >   [here](https://victorzhou.com/blog/lazy-loading-images/)
 > - Syntax highlighting for code blocks with
@@ -118,6 +120,7 @@ In addition:
 - When creating an image, such as with `![Alt text](path/to/img.jpg)`, the alt
   text will be used as the image caption, and will appear below the image when
   rendered.
+- You can write footnotes with `<footnote>This is a footnote</footnote>`.
 - You can cite references in `src/references.bib` with `<cite>KEYS</cite>` where
   `KEYS` is a comma-separated list of keys/ids from `src/references.bib`. For
   instance, you can use `<cite>Einstein1921, Oppenheimer1950"</cite>` to cite

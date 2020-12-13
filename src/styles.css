@@ -462,24 +462,24 @@ address {
   text-decoration: underline;
 }
 
-/* References */
+/* Footnotes and References */
 
-ol.reference-list {
+ol.end-list {
   padding-left: 30px;
   font-size: 0.8rem;
 }
 
-.reference-item {
+.end-item {
   margin-bottom: 0.7rem;
 }
 
-.reference-link,
-.reference-link:visited {
+.ref-link,
+.ref-link:visited {
   color: var(--theme);
   border-bottom: 0px;
 }
 
-.reference-link:hover {
+.ref-link:hover {
   color: var(--theme);
   border-bottom: 0px;
   text-decoration: underline;

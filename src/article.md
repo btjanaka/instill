@@ -56,20 +56,29 @@ $$e = mc^2$$
 
 ## Footnotes
 
-(coming soon)
+Footnotes work by putting the footnote text in `footnote` tags, such as
+`<footnote>This is a footnote.</footnote>`, like right here.<footnote>This is a
+footnote.</footnote> Click to open the footnote! Footnotes can also contain
+formatted content, such as here. <footnote>This is **bold**, and this is
+_italic_.</footnote> Footnotes also appear at the end of the
+document.<footnote>I suppose they should really be called endnotes, but oh
+well.</footnote>
+
+Note that `footnote` is a custom tag, but the build process replaces it with
+proper HTML tags.
 
 ## Citations
 
-This is how to cite external publications <cite>Gregor2015</cite>. That
-was done with `<cite>Gregor2015</cite>`. Click on the citation to see the
-references pop up!
+This is how to cite external publications <cite>Gregor2015</cite>. That was done
+with `<cite>Gregor2015</cite>`. Click on the citation to see the references pop
+up!
 
-Multiple citations works too: <cite>Gregor2015, Mnih2015</cite>. That was
-done with `<cite>Gregor2015, Mnih2015</cite>`.
+Multiple citations works too: <cite>Gregor2015, Mnih2015</cite>. That was done
+with `<cite>Gregor2015, Mnih2015</cite>`.
 
 Citation numbers will be sorted; even though we put `Gregor2015` at the end
-here: `<cite>Silver2017, Heess2017, Gregor2015</cite>` it still shows up
-first <cite>Silver2017, Heess2017, Gregor2015</cite>.
+here: `<cite>Silver2017, Heess2017, Gregor2015</cite>` it still shows up first
+<cite>Silver2017, Heess2017, Gregor2015</cite>.
 
 ## Lists
 
@@ -116,5 +125,3 @@ If citing this article, please use the following bibtex:
   (you would fill this in)
 }
 ```
-
-## References

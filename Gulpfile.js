@@ -92,6 +92,36 @@ function copyFiles(callback) {
   callback();
 }
 
+// Renders the footnotes in-place in the article.
+function renderFootnotes(article) {
+  const footnotes = [];
+
+  article("footnote").each(function (idx, obj) {
+    /* eslint-disable no-invalid-this */
+
+    const note = article(this).html();
+    footnotes.push(note);
+
+    // Create the modal.
+    article(this).replaceWith(`<span class="modal-container">
+  <input id="footnote-toggle-${idx + 1}" class="modal-toggle" type="checkbox">
+  <button><sup>${idx + 1}</sup></button>
+  <span class="modal-backdrop">
+    <span class="modal-content">
+      ${note}
+      <label class="modal-close" for="footnote-toggle-${
+        idx + 1
+      }">[Close]</label>
+    </span>
+  </span>
+</span>`);
+  });
+
+  article("ol#footnote-list").html(
+    footnotes.map((note) => `<li class="end-item">${note}</li>`).join("\n")
+  );
+}
+
 function renderEntry(entry) {
   const tokens = [`<span>`];
 
@@ -101,7 +131,7 @@ function renderEntry(entry) {
   // URL if available.
   if (entry.URL)
     tokens.push(
-      ` <a title="Link" href="${entry.URL}" class="reference-link">[link]</a>`
+      ` <a title="Link" href="${entry.URL}" class="ref-link">[link]</a>`
     );
 
   // Put the remaining info on the next line.
@@ -119,17 +149,8 @@ function renderEntry(entry) {
   return tokens.join("");
 }
 
-function renderArticle() {
-  const article = cheerio.load(
-    md.render(fs.readFileSync("src/article.md", "utf8"))
-  );
-
-  // Lazy loading for images.
-  article("img").attr("loading", "lazy");
-
-  //
-  // Render references.
-  //
+// Renders the modals and reference lists in-place in the article.
+function renderReferences(article) {
   const references = Cite.input(fs.readFileSync("src/references.bib", "utf8"), {
     forceType: "@bibtex/text",
   });
@@ -170,7 +191,7 @@ function renderArticle() {
     const renderedEntries = data
       .map((o) => o.entry)
       .map(renderEntry)
-      .map((entry) => `<span class="reference-item">${entry}</span>`) // Put each entry in a span.
+      .map((entry) => `<span class="end-item">${entry}</span>`) // Put each entry in a span.
       .join("<br/><br/>\n");
 
     // Render the nums. Add 1 because the nums are 0-based and we want 1-based.
@@ -181,25 +202,45 @@ function renderArticle() {
 
     // Create the modal.
     article(this).replaceWith(`<cite class="modal-container">
-  <input id="modal-toggle-${idx}" class="modal-toggle" type="checkbox">
+  <input id="ref-toggle-${idx}" class="modal-toggle" type="checkbox">
   <button>${numStr}</button>
   <span class="modal-backdrop">
     <span class="modal-content">
       ${renderedEntries}
-      <label class="modal-close" for="modal-toggle-${idx}">[Close]</label>
+      <label class="modal-close" for="ref-toggle-${idx}">[Close]</label>
     </span>
   </span>
 </cite>`);
   });
 
-  const referenceStr =
-    `<ol class="reference-list">` +
+  article("ol#reference-list").html(
     citedEntries
-      .map((entry) => `<li class="reference-item">${renderEntry(entry)}</li>`)
-      .join("\n") +
-    `</ol>`;
+      .map((entry) => `<li class="end-item">${renderEntry(entry)}</li>`)
+      .join("\n")
+  );
+}
 
-  return article.html() + referenceStr;
+function renderArticle() {
+  const markdownText =
+    fs.readFileSync("src/article.md", "utf8") +
+    `
+## Footnotes
+
+<ol id="footnote-list" class="end-list"></ol>
+
+## References
+
+<ol id="reference-list" class="end-list"></ol>
+`;
+  const article = cheerio.load(md.render(markdownText));
+
+  // Lazy loading for images.
+  article("img").attr("loading", "lazy");
+
+  renderFootnotes(article);
+  renderReferences(article);
+
+  return article.html();
 }
 
 function buildArticle(minify, callback) {
