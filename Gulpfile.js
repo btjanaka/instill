@@ -12,7 +12,6 @@ const yaml = require("js-yaml");
 const { Liquid } = require("liquidjs");
 const { watch, series } = require("gulp");
 
-const BUILD_DIR = "build";
 const liquidEngine = new Liquid();
 const cssMinify = new CleanCSS({ level: 1 });
 const htmlMinifyOptions = {
@@ -22,6 +21,9 @@ const htmlMinifyOptions = {
   removeComments: true,
   minifyCss: true,
 };
+
+const BUILD_DIR = "build";
+const STATIC_FILES = ["404.html", "favicon.ico", "robots.txt"];
 
 // markdown-it with katex and center-text plugins.
 const md = require("markdown-it")({
@@ -64,23 +66,29 @@ function clean(callback) {
 }
 
 // Only intended for development mode.
-function linkAssets(callback) {
-  fs.symlinkSync("../src/assets", path.join(BUILD_DIR, "assets"));
-  callback();
-}
+function linkFiles(callback) {
+  for (const filename of STATIC_FILES) {
+    fs.symlinkSync(
+      path.join("../src", filename),
+      path.join(BUILD_DIR, filename)
+    );
+  }
 
-function copyAssets(callback) {
-  fs.copySync("src/assets/", path.join(BUILD_DIR, "assets"));
+  fs.symlinkSync("../src/assets", path.join(BUILD_DIR, "assets"));
+
   callback();
 }
 
 function copyFiles(callback) {
-  for (const filename of ["404.html", "favicon.ico", "robots.txt"]) {
+  for (const filename of STATIC_FILES) {
     fsPromises.copyFile(
       path.join("src", filename),
       path.join(BUILD_DIR, filename)
     );
   }
+
+  fs.copySync("src/assets/", path.join(BUILD_DIR, "assets"));
+
   callback();
 }
 
@@ -233,7 +241,7 @@ function liveReload() {
   watch(
     ["src/**/*.*", "!**/.*.swp", "!**/*.vim"],
     { ignoreInitial: false },
-    series((cb) => buildArticle(false, cb), copyFiles, refreshSite)
+    series((cb) => buildArticle(false, cb), refreshSite)
   );
 }
 
@@ -274,7 +282,5 @@ exports.default = function (callback) {
   console.log("  watch -> Live reload the site at localhost:3000.");
   callback();
 };
-exports.build = series(clean, copyAssets, copyFiles, (cb) =>
-  buildArticle(true, cb)
-);
-exports.watch = series(clean, linkAssets, startServer, liveReload);
+exports.build = series(clean, copyFiles, (cb) => buildArticle(true, cb));
+exports.watch = series(clean, linkFiles, startServer, liveReload);
