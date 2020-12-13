@@ -1,19 +1,39 @@
 title: "Hello World"
 url: https://instill-article.github.io # Leave out the slach ("/") at the end
-description: "This is a web article." # Only shows up in meta tags.
+description: "This is a web article." # Short one-liner.
+date: "Jan. 1, 1970" # Whatever you put here is shown as is.
+header: # Comment out this entire key to remove the header.
+  img: assets/img/flowers.png # Header image path (at the top of the article).
+  caption:
+    This is a caption. Iure voluptas ut dolores. Temporibus corrupti unde
+    dolorem rerum rerum quo. Suscipit rerum nisi perspiciatis voluptates.
 authors:
   - name: Bryon Tjanaka
     link: https://btjanaka.net
     affiliation: Univ. Southern California
     affiliationLink: https://usc.edu
-  - name: Bryon Tjanaka
-    link: https://btjanaka.net
-    affiliation: Univ. Southern California
+  - name: Person 1
+    link: /
+    affiliation: An Institution
+    affiliationLink: /
+  - name: Random Person
+    link: /
+    affiliation: Yet Another Institution
+    affiliationLink: /
+  - name: John Doe
+    link: /
+    affiliation: Anonymous Institution
+    affiliationLink: /
+  - name: Sam Pole
+    link: /
+    affiliation: Sample!
     affiliationLink: https://usc.edu
+  - name: Foo Bar Baz Long Name
+    link: /
+    affiliation: Institution
+    affiliationLink: /
 links:
-  - name: Website
-    url: https://btjanaka.net
   - name: GitHub
     url: https://github.com/btjanaka/instill
-  - name: YouTube Video
-    url: https://www.youtube.com/watch?v=rEDzUT3ymw4
+  - name: Demo
+    url: /

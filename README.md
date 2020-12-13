@@ -79,12 +79,16 @@ And view the site at <https://localhost:3000>.
 ### Writing
 
 The main article text is in `src/articles.md`. Normal Markdown features apply.
+In addition:
 
-Furthermore, you can cite references in `src/references.bib` with
-`<cite key="KEYS"></cite>` where `KEYS` is a comma-separated list of keys from
-`src/references.bib`. For instance, you can use
-`<cite key="Einstein1921, Oppenheimer1950"></cite>` to cite two articles
-`Einstein1921` and `Oppenheimer1950`.
+- When creating an image, such as with `![Alt text](path/to/img.jpg)`, the alt
+  text will be used as the image caption, and will appear below the image when
+  rendered.
+- You can cite references in `src/references.bib` with
+  `<cite key="KEYS"></cite>` where `KEYS` is a comma-separated list of keys from
+  `src/references.bib`. For instance, you can use
+  `<cite key="Einstein1921, Oppenheimer1950"></cite>` to cite two articles
+  `Einstein1921` and `Oppenheimer1950`.
 
 ### Customization
 

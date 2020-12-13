@@ -51,6 +51,10 @@ const md = require("markdown-it")({
     level: 2,
     listType: "ul",
     containerClass: "l-body",
+  })
+  .use(require("markdown-it-implicit-figures"), {
+    figcaption: true,
+    link: false,
   });
 
 function clean(callback) {

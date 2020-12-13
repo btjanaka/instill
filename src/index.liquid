@@ -32,37 +32,52 @@
   </head>
 
   <body>
+    {% if header %}
+    <header>
+      <figure>
+        <img src="{{ header.img }}"/>
+        <figcaption class="header-caption">{{ header.caption }}</figcaption>
+      </figure>
+    </header>
+    {% endif %}
+
     <div class="main">
-      <h1>{{ title }}</h1>
 
-      {% if links %}
-      <div class="links">
-      {% for link in links %}
-        <div class="link-cell">
-          <a title="{{ link.name }}" href="{{ link.url }}">{{ link.name }}</a>
-        </div>
-      {% endfor %}
-      </div>
-      {% endif %}
+      <div class="article">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
 
-      <div class="authors">
-        <table class="author-table">
-        {% for author in authors %}
-          <tr class="author-row">
-            <td class="author-name">
+        <div class="authors">
+          {% for author in authors %}
+          <div class="author-cell">
+            <span class="author-name">
               <a title="{{ author.name }}" href="{{ author.link }}">{{ author.name }}</a>
-            </td>
-            <td class="author-affiliation">
+            </span>
+            <span class="author-affiliation">
               <a title="{{ author.affiliation }}" href="{{ author.affiliationLink }}">
                 {{ author.affiliation | upcase }}
               </a>
-            </td>
-          </tr>
-        {% endfor %}
-        </table>
-      </div>
+            </span>
+          </div>
+          {% endfor %}
+        </div>
 
-      {{ article }}
+        {% if links %}
+        <div class="links">
+        {% for link in links %}
+          <div class="link-cell">
+            <a title="{{ link.name }}" href="{{ link.url }}">{{ link.name }}</a>
+          </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+        <p class="date">
+        <i>Published {{ date }}</i>
+        </p>
+
+        {{ article }}
+      </div>
     </div>
 
     <footer>

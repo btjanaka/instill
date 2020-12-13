@@ -5,7 +5,8 @@
  */
 
 :root {
-  --body: rgba(0, 0, 0, 0.8);
+  --primary: rgba(0, 0, 0, 0.8);
+  --secondary: rgba(0, 0, 0, 0.6);
   --link-hover: rgba(0, 0, 0, 0.8);
 }
 
@@ -17,6 +18,22 @@
     color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
+  }
+
+  html {
+    font-size: 12px !important;
+  }
+
+  body {
+    padding: 20px !important;
+  }
+
+  div.main,
+  div.article {
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   a,
@@ -80,7 +97,11 @@
 /* Web styles */
 
 html {
+  color: var(--primary);
+  font-family: Georgia, sans-serif;
+  font-weight: 300;
   font-size: 20px;
+  line-height: 1.45;
 }
 
 body {
@@ -89,21 +110,24 @@ body {
 }
 
 div.main {
-  color: var(--body);
-  font-family: Georgia, sans-serif;
-  font-weight: 300;
-  margin: 0 auto;
-  max-width: 48rem;
-  line-height: 1.45;
+  margin: 0px;
+  width: calc(100% - 80px);
   padding: 40px;
 }
 
-footer {
+div.article {
+  max-width: 48rem;
   width: 100%;
+  padding: 0px;
+  margin: 60px auto 0px auto;
+}
+
+footer {
   background-color: #f2f2f2;
   text-align: center;
   margin: 0px;
-  padding: 30px 0px;
+  padding: 30px 20px;
+  width: calc(100% - 40px);
   font-size: 0.8rem;
 }
 
@@ -111,9 +135,9 @@ footer {
 
 a,
 a:visited {
-  color: var(--body);
+  color: var(--primary);
   text-decoration: none;
-  border-bottom: 1px solid var(--body);
+  border-bottom: 1px solid var(--primary);
 }
 
 a:hover,
@@ -155,7 +179,7 @@ code {
 pre {
   padding: 0.5rem;
   line-height: 1.25;
-  overflow-x: scroll;
+  overflow-x: auto;
   font-size: 0.9rem;
 }
 
@@ -201,6 +225,23 @@ h6 {
   font-size: 0.9rem;
 }
 
+/* Figures and images */
+
+figure {
+  padding: 0px;
+  margin: 0px;
+}
+
+img {
+  max-width: 100%;
+}
+
+figcaption {
+  margin: 5px 20px;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
 /* Misc */
 
 blockquote {
@@ -212,7 +253,6 @@ small {
   font-size: 0.707em;
 }
 
-img,
 canvas,
 iframe,
 video,
@@ -227,7 +267,7 @@ textarea {
  */
 
 :root {
-  --theme: #e62020;
+  --theme: #2980b9;
 }
 
 ::selection {
@@ -237,67 +277,74 @@ textarea {
   background: rgba(0, 0, 0, 0.2);
 }
 
+figcaption.header-caption {
+  max-width: 48rem;
+  margin: 0px auto;
+  padding: 0px 40px;
+}
+
 /* Authors and links */
 
 .links {
   padding: 6px 0px;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
+.authors {
+  padding: 6px 0px;
+  overflow: hidden;
+}
+
+.author-cell,
 .link-cell {
   float: left;
   display: inline-block;
-  padding: 4px 12px;
+  padding: 8px 30px 8px 0px;
 }
 
-.authors {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 6px 0px;
-}
-
-.author-table {
-  width: 100%;
-  max-width: 28rem;
-  margin: 0px;
-  padding-left: 10px;
-}
-
-.author-row {
-  padding: 0px;
-  margin: 0px;
-}
-
-.author-row a,
-.links a {
+.author-cell a,
+.link-cell a {
   text-decoration: none;
-  border-bottom: 0px;
+}
+
+.author-cell a {
   font-size: 0.8rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--secondary);
+  border-bottom: 0px;
 }
 
-.links a {
+.link-cell a,
+.link-cell a:hover {
   font-size: 1rem;
+  color: var(--theme);
+  border-color: var(--theme);
 }
 
-.author-row a:hover,
-.links a:hover {
+.author-cell a:hover {
   border-bottom: 2px solid var(--link-hover);
   color: var(--link-hover);
 }
 
-.author-name {
-  text-align: left;
-  font-weight: bold;
+.author-name,
+.author-affiliation {
+  display: block;
   padding: 0px;
   margin: 0px;
 }
 
-.author-affiliation {
-  text-align: right;
-  padding: 0px;
-  margin: 0px;
+.author-name {
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .author-cell,
+  .link-cell {
+    float: none;
+    display: block;
+  }
+  .author-name {
+    padding-right: 12px;
+  }
 }
 
 /* Modal - see https://www.cssscript.com/simple-responsive-css-modal-dialog/ */
