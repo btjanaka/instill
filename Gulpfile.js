@@ -111,10 +111,17 @@ function renderEntry(entry) {
   return tokens.join("");
 }
 
-function renderArticleAndRefs() {
+function renderArticle() {
   const article = cheerio.load(
     md.render(fs.readFileSync("src/article.md", "utf8"))
   );
+
+  // Lazy loading for images.
+  article("img").attr("loading", "lazy");
+
+  //
+  // Render references.
+  //
   const references = Cite.input(fs.readFileSync("src/references.bib", "utf8"), {
     forceType: "@bibtex/text",
   });
@@ -191,7 +198,7 @@ function renderArticleAndRefs() {
 function buildArticle(minify, callback) {
   const template = fs.readFileSync("src/index.liquid", "utf8");
   const data = yaml.safeLoad(fs.readFileSync("src/data.yaml", "utf8"));
-  const article = renderArticleAndRefs();
+  const article = renderArticle();
 
   let styles = fs.readFileSync("src/styles.css", "utf8");
   if (minify) styles = cssMinify.minify(styles).styles;
