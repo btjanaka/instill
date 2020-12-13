@@ -40,7 +40,7 @@ const md = require("markdown-it")({
     return ""; // Use external default escaping.
   },
 })
-  .use(require("markdown-it-katex"))
+  .use(require("@iktakahiro/markdown-it-katex"))
   .use(require("markdown-it-center-text"))
   .use(require("markdown-it-anchor"), {
     level: 2,

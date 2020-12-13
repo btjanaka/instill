@@ -15,7 +15,7 @@
 > - Write articles in Markdown! Parsing done by
 >   [markdown-it](https://www.npmjs.com/package/markdown-it)
 > - Katex support thanks to
->   [markdown-it-katex](https://www.npmjs.com/package/markdown-it-katex)
+>   [markdown-it-katex](https://www.npmjs.com/package/@iktakahiro/markdown-it-katex)
 > - Table of contents for your articles with
 >   [markdown-it-toc-done-right](https://www.npmjs.com/package/markdown-it-toc-done-right)
 > - Include and cite bibtex references with a custom `cite` command; e.g.
