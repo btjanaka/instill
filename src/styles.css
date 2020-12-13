@@ -28,8 +28,8 @@
     padding: 20px !important;
   }
 
-  div.main,
-  div.article {
+  main,
+  article {
     margin: 0px !important;
     padding: 0px !important;
     width: 100% !important;
@@ -109,13 +109,13 @@ body {
   padding: 0px;
 }
 
-div.main {
+main {
   margin: 0px;
   width: calc(100% - 80px);
   padding: 40px;
 }
 
-div.article {
+article {
   max-width: 48rem;
   width: 100%;
   padding: 0px;
@@ -290,7 +290,7 @@ figcaption.header-caption {
   overflow: hidden;
 }
 
-.authors {
+address {
   padding: 6px 0px;
   overflow: hidden;
 }

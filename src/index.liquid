@@ -41,13 +41,12 @@
     </header>
     {% endif %}
 
-    <div class="main">
-
-      <div class="article">
+    <main>
+      <article>
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
 
-        <div class="authors">
+        <address>
           {% for author in authors %}
           <div class="author-cell">
             <span class="author-name">
@@ -60,7 +59,7 @@
             </span>
           </div>
           {% endfor %}
-        </div>
+        </address>
 
         {% if links %}
         <div class="links">
@@ -77,8 +76,8 @@
         </p>
 
         {{ article }}
-      </div>
-    </div>
+      </article>
+    </main>
 
     <footer>
       This work is released under the
