@@ -350,6 +350,14 @@ address {
     float: none;
     display: block;
   }
+
+  .links {
+    padding-top: 0px;
+  }
+
+  .date {
+    padding-top: 16px;
+  }
 }
 
 /* Modal - see https://www.cssscript.com/simple-responsive-css-modal-dialog/ */
