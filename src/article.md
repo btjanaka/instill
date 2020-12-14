@@ -106,7 +106,7 @@ Images can have captions attached to them.
 
 ![This is the caption of the figure; you can even use formatted text in it, like
 **bold** text and _italic_ text. The caption can be pretty long, too, if you so
-wish.](assets/img/flowers.png)
+wish. This image was also generated with a CPPN.](assets/img/cppn-rgb.jpg)
 
 ## Appendix
 
