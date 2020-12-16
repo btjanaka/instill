@@ -74,7 +74,7 @@
   }
 
   img {
-    max-width: 100% !important;
+    width: 100% !important;
   }
 
   p,
@@ -233,11 +233,11 @@ figure {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
 }
 
 figcaption {
-  margin: 5px 20px;
+  margin: 5px 20px 1rem 20px;
   font-size: 0.9rem;
   color: var(--secondary);
 }
@@ -267,7 +267,7 @@ textarea {
  */
 
 :root {
-  --theme: #2980b9;
+  --theme: #1f7199;
 }
 
 ::selection {
@@ -275,12 +275,6 @@ textarea {
 }
 ::-moz-selection {
   background: rgba(0, 0, 0, 0.2);
-}
-
-figcaption.header-caption {
-  max-width: 48rem;
-  margin: 0px auto;
-  padding: 0px 40px;
 }
 
 /* Authors and links */

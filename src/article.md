@@ -104,9 +104,13 @@ print("hello world")
 
 Images can have captions attached to them.
 
-![This is the caption of the figure; you can even use formatted text in it, like
+![This is the caption of the figure. You can even use formatted text in it, like
 **bold** text and _italic_ text. The caption can be pretty long, too, if you so
-wish. This image was also generated with a CPPN.](assets/img/cppn-rgb.jpg)
+wish. This image was generated with a CPPN.](assets/img/cppn-rgb.jpg)
+
+![Here's another image. This was also generated with a CPPN.](assets/img/cppn-grey.jpg)
+
+Here's some text after the images.
 
 ## Appendix
 

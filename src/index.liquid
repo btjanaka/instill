@@ -32,19 +32,10 @@
   </head>
 
   <body>
-    {% if header %}
-    <header>
-      <figure>
-        <img src="{{ header.img }}" loading="lazy"/>
-        <figcaption class="header-caption">{{ header.caption }}</figcaption>
-      </figure>
-    </header>
-    {% endif %}
-
     <main>
       <article>
         <h1>{{ title }}</h1>
-        {% comment %} <p>{{ description }}</p> {% endcomment %}
+        <p>{{ description }}</p>
 
         <address>
           {% for author in authors %}
