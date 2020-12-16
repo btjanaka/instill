@@ -92,6 +92,16 @@ function copyFiles(callback) {
   callback();
 }
 
+// Sets the alt attribute of each image to be its caption.
+function setImageAlt(article) {
+  article("figure").each(function (idx, obj) {
+    /* eslint-disable no-invalid-this */
+
+    const caption = article(this).children("figcaption").text();
+    article(this).children("img").attr("alt", caption);
+  });
+}
+
 // Renders the footnotes in-place in the article.
 function renderFootnotes(article) {
   const footnotes = [];
@@ -237,6 +247,7 @@ function renderArticle() {
   // Lazy loading for images.
   article("img").attr("loading", "lazy");
 
+  setImageAlt(article);
   renderFootnotes(article);
   renderReferences(article);
 
