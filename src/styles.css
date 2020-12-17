@@ -115,6 +115,13 @@ main {
   padding: 40px;
 }
 
+@media (max-width: 500px) {
+  main {
+    width: calc(100% - 30px);
+    padding: 15px;
+  }
+}
+
 article {
   max-width: 48rem;
   width: 100%;
