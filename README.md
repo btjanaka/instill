@@ -26,6 +26,7 @@
 > - SEO tags (OpenGraph and Twitter) included
 > - Liquid / liquidjs template and CSS stylesheet if you really want to dig into
 >   customization :smile:
+> - CSS autoprefixing for browser compatibility
 > - HTML+CSS minifier for final page output (though honestly, the page is
 >   already tiny :laughing:)
 > - Pure HTML+CSS output (JavaScript is only used for generating the site)

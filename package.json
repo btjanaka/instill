@@ -11,6 +11,7 @@
   "license": "CC-BY-4.0",
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "4.0.1",
+    "autoprefixer": "10.1.0",
     "browser-sync": "2.26.13",
     "cheerio": "1.0.0-rc.3",
     "citation-js": "0.5.0-alpha.9",
@@ -25,7 +26,8 @@
     "markdown-it-anchor": "6.0.1",
     "markdown-it-center-text": "1.0.4",
     "markdown-it-implicit-figures": "0.10.0",
-    "markdown-it-toc-done-right": "4.2.0"
+    "markdown-it-toc-done-right": "4.2.0",
+    "postcss": "8.2.1"
   },
   "devDependencies": {
     "eslint": "7.15.0",

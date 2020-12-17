@@ -1,6 +1,7 @@
 // Instructions for building the site as well as serving a live version.
 const Cite = require("citation-js");
 const CleanCSS = require("clean-css");
+const autoprefixer = require("autoprefixer");
 const browserSync = require("browser-sync");
 const cheerio = require("cheerio");
 const fs = require("fs-extra");
@@ -8,6 +9,7 @@ const fsPromises = require("fs-extra").promises;
 const hljs = require("highlight.js");
 const htmlMinify = require("html-minifier").minify;
 const path = require("path");
+const postcss = require("postcss");
 const yaml = require("js-yaml");
 const { Liquid } = require("liquidjs");
 const { watch, series } = require("gulp");
@@ -254,12 +256,14 @@ function renderArticle() {
   return article.html();
 }
 
-function buildArticle(minify, callback) {
+async function buildArticle(minify, callback) {
   const template = fs.readFileSync("src/index.liquid", "utf8");
   const data = yaml.safeLoad(fs.readFileSync("src/data.yaml", "utf8"));
   const article = renderArticle();
 
   let styles = fs.readFileSync("src/styles.css", "utf8");
+  styles = (await postcss([autoprefixer]).process(styles, { from: undefined }))
+    .css;
   if (minify) styles = cssMinify.minify(styles).styles;
 
   const substitutions = {
@@ -273,13 +277,11 @@ function buildArticle(minify, callback) {
     }
   }
 
-  liquidEngine
-    .parseAndRender(template, substitutions)
-    .then(function (html) {
-      if (minify) html = htmlMinify(html, htmlMinifyOptions);
-      fs.writeFile(path.join(BUILD_DIR, "index.html"), html);
-    })
-    .then(callback);
+  html = await liquidEngine.parseAndRender(template, substitutions);
+  if (minify) html = htmlMinify(html, htmlMinifyOptions);
+  fs.writeFile(path.join(BUILD_DIR, "index.html"), html);
+
+  callback();
 }
 
 function refreshSite(callback) {
