@@ -59,9 +59,11 @@
             <a title="{{ link.name }}" href="{{ link.url }}">{{ link.name }}</a>
           </div>
         {% endfor %}
+          {% if date %}
           <div class="link-cell date">
-            <i>Published {{ date }}</i>
+            <i>{{ date }}</i>
           </div>
+          {% endif %}
         </div>
         {% endif %}
 
