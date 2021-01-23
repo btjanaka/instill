@@ -132,6 +132,11 @@ function renderFootnotes(article) {
   article("ol#footnote-list").html(
     footnotes.map((note) => `<li class="end-item">${note}</li>`).join("\n")
   );
+
+  if (footnotes.length == 0) {
+    article("h2:contains(Footnotes)").remove();
+    article("ol#footnote-list").remove();
+  }
 }
 
 function renderEntry(entry) {
@@ -230,6 +235,11 @@ function renderReferences(article) {
       .map((entry) => `<li class="end-item">${renderEntry(entry)}</li>`)
       .join("\n")
   );
+
+  if (citedEntries.length == 0) {
+    article("h2:contains(References)").remove();
+    article("ol#reference-list").remove();
+  }
 }
 
 function renderArticle() {
