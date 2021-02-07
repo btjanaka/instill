@@ -27,7 +27,7 @@ const htmlMinifyOptions = {
 const BUILD_DIR = "build";
 const STATIC_FILES = ["404.html", "favicon.ico", "robots.txt"];
 
-// markdown-it with katex and center-text plugins.
+// markdown-it with various plugins.
 const md = require("markdown-it")({
   html: true,
   xhtmlOut: false,
@@ -287,7 +287,7 @@ async function buildArticle(minify, callback) {
     }
   }
 
-  html = await liquidEngine.parseAndRender(template, substitutions);
+  const html = await liquidEngine.parseAndRender(template, substitutions);
   if (minify) html = htmlMinify(html, htmlMinifyOptions);
   fs.writeFile(path.join(BUILD_DIR, "index.html"), html);
 
