@@ -287,7 +287,7 @@ async function buildArticle(minify, callback) {
     }
   }
 
-  const html = await liquidEngine.parseAndRender(template, substitutions);
+  let html = await liquidEngine.parseAndRender(template, substitutions);
   if (minify) html = htmlMinify(html, htmlMinifyOptions);
   fs.writeFile(path.join(BUILD_DIR, "index.html"), html);
 
