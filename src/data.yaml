@@ -1,7 +1,7 @@
 title: "Instill: A Single-Page Article Template for Academics"
-url: https://instill-article.github.io # Leave out the slach ("/") at the end
-description: "This site demonstrates some of the capabilities of Instill." # Short one-liner.
-date: "Dec. 12, 2020" # Whatever you put here is shown as is. You can also leave it blank.
+url: https://instill-article.github.io # Leave out the slash ("/") at the end
+description: "This site demonstrates some of the capabilities of Instill." # Short one-liner. Optional but recommended.
+date: "Dec. 12, 2020" # Whatever you put here is shown as is. Optional.
 authors:
   - name: Bryon Tjanaka
     link: https://btjanaka.net
