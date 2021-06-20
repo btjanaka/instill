@@ -64,8 +64,8 @@
 >       [Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token).
 >    1. Add the token as a secret called `TOKEN`
 >       ([how to add a secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository))
->    1. Change the `external_repository` at the bottom of
->       `.github/workflows/deploy.yaml`.
+>    1. Change the `external_repository` (and maybe also the `publish_branch`)
+>       at the bottom of `.github/workflows/deploy.yaml`.
 > 1. Remove this blockquote section from the README (but keep the rest of it for
 >    your use).
 > 1. You're now ready to write your article! The article content is in
@@ -111,7 +111,7 @@ And view the site at <https://localhost:3000>.
 
 ### Writing
 
-The main article text is in `src/articles.md`. Normal Markdown features apply.
+The main article text is in `src/article.md`. Normal Markdown features apply.
 In addition:
 
 - When creating an image, such as with `![Alt text](path/to/img.jpg)`, the alt
