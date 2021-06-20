@@ -52,13 +52,16 @@ const md = require("markdown-it")({
     permalinkClass: "permalink", // Style in index.liquid
   })
   .use(require("markdown-it-toc-done-right"), {
-    level: 2,
+    // Only show TOC for level 2 headings.
+    level: [2],
     listType: "ul",
     containerClass: "l-body",
   })
   .use(require("markdown-it-implicit-figures"), {
     figcaption: true,
-    link: false,
+    // This should only be included if all the figures in the document can have
+    // links - otherwise it's inconsistent.
+    // link: true,
   });
 
 function clean(callback) {
@@ -115,9 +118,9 @@ function renderFootnotes(article) {
     footnotes.push(note);
 
     // Create the modal.
-    article(this).replaceWith(`<span class="modal-container">
+    article(this).replaceWith(`<span class="modal-container footnote">
   <input id="footnote-toggle-${idx + 1}" class="modal-toggle" type="checkbox">
-  <button><sup>${idx + 1}</sup></button>
+  <button><sup class="footnote-number">${idx + 1}</sup></button>
   <span class="modal-backdrop">
     <span class="modal-content">
       ${note}
