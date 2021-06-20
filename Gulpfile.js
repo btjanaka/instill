@@ -154,13 +154,23 @@ function renderEntry(entry) {
   // Put the remaining info on the next line.
   tokens.push(`<br/>`);
 
-  // Authors with Last Name, First Initial.
   for (const author of entry.author) {
-    tokens.push(`${author.family}, ${author.given[0]}., `);
+    if (author.hasOwnProperty("literal")) {
+      // Just push whole name.
+      tokens.push(`${author.literal}, `);
+    } else {
+      // Authors with Last Name, First Initial.
+      tokens.push(`${author.family}, ${author.given[0]}., `);
+    }
   }
 
   // Year.
   tokens.push(`${entry.issued["date-parts"][0][0]}.`);
+
+  // Container - e.g. journal, booktitle.
+  if (entry.hasOwnProperty("container-title")) {
+    tokens.push(` <i>${entry["container-title"]}</i>.`);
+  }
 
   tokens.push(`</span>`);
   return tokens.join("");
