@@ -7,7 +7,6 @@
 :root {
   --primary: rgba(0, 0, 0, 0.8);
   --secondary: rgba(0, 0, 0, 0.6);
-  --link-hover: rgba(0, 0, 0, 0.8);
 }
 
 @media print {
@@ -34,11 +33,6 @@
     padding: 0px !important;
     width: 100% !important;
     max-width: 100% !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
   }
 
   a[href]:after {
@@ -69,12 +63,10 @@
   }
 
   tr,
-  img {
+  img,
+  video,
+  figure {
     page-break-inside: avoid;
-  }
-
-  img {
-    width: 100% !important;
   }
 
   p,
@@ -84,13 +76,10 @@
     widows: 3;
   }
 
+  h1,
   h2,
   h3 {
     page-break-after: avoid;
-  }
-
-  footer {
-    display: none;
   }
 }
 
@@ -115,7 +104,7 @@ main {
   padding: 40px;
 }
 
-@media (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   main {
     width: calc(100% - 30px);
     padding: 15px;
@@ -142,16 +131,14 @@ footer {
 
 a,
 a:visited {
-  color: var(--primary);
+  color: var(--theme);
   text-decoration: none;
-  border-bottom: 1px solid var(--primary);
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: var(--link-hover);
-  border-bottom: 2px solid var(--link-hover);
+  border-bottom: 2px solid var(--theme);
 }
 
 a.permalink {
@@ -162,7 +149,7 @@ a.permalink {
 }
 
 a.permalink:hover {
-  color: var(--link-hover);
+  color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
   border: 0px;
 }
@@ -172,6 +159,12 @@ a.permalink:hover {
 p {
   font-size: 1rem;
   margin-bottom: 1.3rem;
+}
+
+p.description {
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* Pre and code */
@@ -208,20 +201,21 @@ h6 {
 h1 {
   margin-top: 0;
   padding-bottom: 0;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   font-size: 2.4rem;
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 h4 {
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 h5 {
@@ -239,14 +233,43 @@ figure {
   margin: 0px;
 }
 
-img {
-  width: 100%;
+img,
+video {
+  width: 60%;
+  margin: 0px auto;
+  display: block;
 }
 
 figcaption {
-  margin: 5px 20px 1rem 20px;
-  font-size: 0.9rem;
+  margin: 1rem 40px;
+  font-size: 0.8rem;
   color: var(--secondary);
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  img,
+  video {
+    width: 100%;
+  }
+
+  figcaption {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+/* Tables */
+
+table {
+  display: block;
+  margin: 0px auto;
+  font-size: 0.7rem;
+  width: 100%;
+}
+
+th {
+  padding: 0px 0.25rem;
 }
 
 /* Misc */
@@ -262,7 +285,6 @@ small {
 
 canvas,
 iframe,
-video,
 svg,
 select,
 textarea {
@@ -274,7 +296,7 @@ textarea {
  */
 
 :root {
-  --theme: #1f7199;
+  --theme: #6495ed;
 }
 
 ::selection {
@@ -298,18 +320,12 @@ address {
 .link-cell {
   float: left;
   display: inline-block;
-  padding: 8px 30px 8px 0px;
+  padding: 8px 36px 8px 0px;
 }
 
 .author-cell a,
 .link-cell a {
   text-decoration: none;
-}
-
-.author-cell a {
-  font-size: 0.8rem;
-  color: var(--primary);
-  border-bottom: 0px;
 }
 
 .link-cell a,
@@ -319,9 +335,8 @@ address {
   border-color: var(--theme);
 }
 
-.author-cell a:hover {
-  border-bottom: 2px solid var(--link-hover);
-  color: var(--link-hover);
+.link-cell a {
+  font-weight: bold;
 }
 
 .author-name,
@@ -331,8 +346,8 @@ address {
   margin: 0px;
 }
 
-.author-name {
-  font-weight: bold;
+.author-affiliation a {
+  color: var(--primary);
 }
 
 .date {
@@ -341,7 +356,7 @@ address {
   color: var(--secondary);
 }
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   .author-cell,
   .link-cell,
   .date {
@@ -361,8 +376,12 @@ address {
 /* Modal - see https://www.cssscript.com/simple-responsive-css-modal-dialog/ */
 
 .modal-container {
-  margin: 0 0;
+  margin: 0;
   position: relative;
+}
+
+.modal-container.footnote {
+  margin-right: 0.25rem;
 }
 
 .modal-container button {
@@ -438,7 +457,7 @@ address {
   font-style: normal;
   font-size: 0.7rem;
 }
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   .modal-container .modal-toggle:checked ~ .modal-backdrop .modal-content {
     left: 0;
   }
@@ -469,6 +488,10 @@ address {
 }
 
 /* Footnotes and References */
+
+sup.footnote-number {
+  font-weight: bold;
+}
 
 ol.end-list {
   padding-left: 30px;
