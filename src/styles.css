@@ -138,7 +138,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-  border-bottom: 2px solid var(--theme);
+  border-bottom: 1px solid var(--theme);
 }
 
 a.permalink {
@@ -328,15 +328,9 @@ address {
   text-decoration: none;
 }
 
-.link-cell a,
-.link-cell a:hover {
-  font-size: 1rem;
-  color: var(--theme);
-  border-color: var(--theme);
-}
-
 .link-cell a {
   font-weight: bold;
+  border-width: 2px;
 }
 
 .author-name,
@@ -348,6 +342,7 @@ address {
 
 .author-affiliation a {
   color: var(--primary);
+  border-color: var(--primary);
 }
 
 .date {
