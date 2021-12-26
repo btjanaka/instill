@@ -144,7 +144,7 @@ src
 ├── references.bib -> Bibtex references, can be used in the article
 ├── styles.css -> Custom CSS styles, loaded into the head of the final page
 ├── assets/ -> Additional JS, CSS, images
-├── robots.text -> Defaults to doing nothing
+├── robots.txt -> Defaults to doing nothing
 ├── favicon.ico -> Default is just an X
 └── 404.html
 ```
